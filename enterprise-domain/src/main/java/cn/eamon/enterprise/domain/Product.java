@@ -1,6 +1,9 @@
 package cn.eamon.enterprise.domain;
 
+import cn.eamon.enterprise.domain.common.Constant;
+import cn.eamon.enterprise.utils.DateUtils;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -31,6 +34,7 @@ public class Product {
     /**
      * 出发时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date departureTime;
     private String departureTimeStr;
     /**
@@ -46,4 +50,20 @@ public class Product {
      */
     private Integer productStatus;
     private String productStatusStr;
+
+    public String getProductStatusStr() {
+        if (productStatus == 1) {
+            productStatusStr = Constant.STATUS_OPEN;
+        } else {
+            productStatusStr = Constant.STATUS_CLOSE;
+        }
+        return productStatusStr;
+    }
+
+    public String getDepartureTimeStr() {
+        if (departureTime != null) {
+            departureTimeStr = DateUtils.date2String(departureTime,"yyyy--MM-dd");
+        }
+        return departureTimeStr;
+    }
 }

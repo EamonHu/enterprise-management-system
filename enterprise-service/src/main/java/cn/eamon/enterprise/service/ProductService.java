@@ -15,4 +15,9 @@ public interface ProductService {
      * 查询所有产品product
      */
     List<Product> findAll() throws Exception;
+
+    /**
+     * 保存一个产品
+     */
+    void save(Product product);
 }
