@@ -25,9 +25,6 @@ public class OrdersController {
 
     /**
      * 查找所有订单
-     *
-     * @return
-     * @throws Exception
      */
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(
@@ -40,6 +37,19 @@ public class OrdersController {
         PageInfo<Orders> pageInfo = new PageInfo<>(ordersList);
         mv.addObject("pageInfo", pageInfo);
         mv.setViewName("orders-page-list");
+        return mv;
+    }
+
+    /**
+     * 根据订单ID查看订单详情
+     * @param id 订单id
+     */
+    @RequestMapping("/findById.do")
+    public ModelAndView findById(int id) throws Exception {
+        ModelAndView mv = new ModelAndView();
+        Orders orders = ordersService.findById(id);
+        mv.setViewName("orders-show");
+        mv.addObject("orders", orders);
         return mv;
     }
 }

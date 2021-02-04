@@ -25,7 +25,6 @@ public class ProductController {
     /**
      * 添加产品
      */
-
     @RequestMapping("/save.do")
     public String save (Product product) {
         productService.save(product);

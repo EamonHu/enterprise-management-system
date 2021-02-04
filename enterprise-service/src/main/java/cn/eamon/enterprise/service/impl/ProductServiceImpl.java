@@ -14,7 +14,7 @@ import java.util.UUID;
  * @Description:
  * @Date: 2021/1/13 17:17
  */
-@Service
+@Service("ProductService")
 public class ProductServiceImpl implements ProductService {
 
     @Autowired

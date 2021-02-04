@@ -12,7 +12,7 @@ import java.util.Date;
 public class DateUtils {
 
     /**
-     * 日志转换成字符串
+     * 日期转换成字符串
      */
     public static String date2String(Date date, String pattern) {
         SimpleDateFormat spf = new SimpleDateFormat(pattern);

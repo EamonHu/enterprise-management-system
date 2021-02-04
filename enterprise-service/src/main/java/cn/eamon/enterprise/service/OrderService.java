@@ -17,4 +17,9 @@ public interface OrderService {
      * 查找所有的订单列表
      */
     List<Orders> findAllByPage(int page, int pageSize) throws Exception;
+
+    /**
+     * 根据订单id查询订单详情
+     */
+    Orders findById(int id) throws Exception;
 }

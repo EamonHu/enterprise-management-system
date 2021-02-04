@@ -14,7 +14,7 @@ import java.util.List;
  * @Description:
  * @Date: 2021/1/15 15:56
  */
-@Service
+@Service("OrderService")
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
@@ -26,5 +26,10 @@ public class OrderServiceImpl implements OrderService {
         // 必须写在执行方法之前！！！
         PageHelper.startPage(page, pageSize);
         return orderDao.findAll();
+    }
+
+    @Override
+    public Orders findById(int id) throws Exception {
+        return orderDao.findById(id);
     }
 }
